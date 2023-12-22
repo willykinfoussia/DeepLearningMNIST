@@ -75,9 +75,21 @@ class ClassificationModel(Algorithm):
 
         # *************** COMPUTE LOSSES *************************
         record = {}
+
+        # Assuming pred_var and labels_var are torch Tensors
+        loss_total = self.criterions["loss"](pred_var, labels_var)
+
+        # Assuming pred_var is the output of your model and labels is the ground truth labels
+        prec1, _ = accuracy(pred_var.data, labels, topk=(1,))
+        record["prec1"] = prec1.item()
+        record["loss"] = loss_total.item()
+
+        """
+        record = {}
         loss_total = self.criterions["loss"](pred_var, labels_var)
         record["prec1"] = accuracy(pred_var.data, labels, topk=(1,))[0][0]
         record["loss"] = loss_total.data[0]
+        """
         # ********************************************************
 
         # ****** BACKPROPAGATE AND APPLY OPTIMIZATION STEP *******

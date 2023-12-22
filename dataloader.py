@@ -266,9 +266,9 @@ class DataLoader(object):
                 img0, _ = self.dataset[idx]
                 rotated_imgs = [
                     self.transform(img0),
-                    self.transform(rotate_img(img0,  90)),
-                    self.transform(rotate_img(img0, 180)),
-                    self.transform(rotate_img(img0, 270))
+                    self.transform(rotate_img(img0,  90).copy()),
+                    self.transform(rotate_img(img0, 180).copy()),
+                    self.transform(rotate_img(img0, 270).copy())
                 ]
                 rotation_labels = torch.LongTensor([0, 1, 2, 3])
                 return torch.stack(rotated_imgs, dim=0), rotation_labels
