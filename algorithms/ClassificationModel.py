@@ -80,9 +80,8 @@ class ClassificationModel(Algorithm):
         loss_total = self.criterions["loss"](pred_var, labels_var)
 
         # Assuming pred_var is the output of your model and labels is the ground truth labels
-        prec1, _ = accuracy(pred_var.data, labels, topk=(1,))
-        record["prec1"] = prec1.item()
-        record["loss"] = loss_total.item()
+        record["prec1"] = accuracy(pred_var.data, labels, topk=(1,))[0].item()
+        record["loss"] = loss_total.data.item()
 
         """
         record = {}
@@ -99,7 +98,11 @@ class ClassificationModel(Algorithm):
         # ********************************************************
         batch_process_time = time.time() - start
         total_time = batch_process_time + batch_load_time
-        record["load_time"] = 100 * (batch_load_time / total_time)
-        record["process_time"] = 100 * (batch_process_time / total_time)
+        if total_time != 0:
+            record["load_time"] = 100 * (batch_load_time / total_time)
+            record["process_time"] = 100 * (batch_process_time / total_time)
+        else:
+            record["load_time"] = 0
+            record["process_time"] = 0
 
         return record

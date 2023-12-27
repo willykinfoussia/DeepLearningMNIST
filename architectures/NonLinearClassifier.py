@@ -7,7 +7,7 @@ import numpy as np
 class BasicBlock(nn.Module):
     def __init__(self, in_planes, out_planes, kernel_size, stride=1):
         super(BasicBlock, self).__init__()
-        padding = (kernel_size-1)/2
+        padding = math.floor((kernel_size-1)/2)
         self.layers = nn.Sequential()
         self.layers.add_module('Conv', nn.Conv2d(in_planes, out_planes, \
             kernel_size=kernel_size, stride=stride, padding=padding, bias=False))
@@ -42,7 +42,7 @@ class Classifier(nn.Module):
 
         self.classifier = nn.Sequential()
 
-	if self.cls_type == 'MultLayer':
+        if self.cls_type == 'MultLayer':
             nFeats = min(num_classes*20, 2048)
             self.classifier.add_module('Flatten',     Flatten())
             self.classifier.add_module('Liniear_1',   nn.Linear(nChannels, nFeats, bias=False))

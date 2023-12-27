@@ -310,7 +310,7 @@ class Algorithm:
             if (idx + 1) % disp_step == 0:
                 self.logger.info(
                     "==> Iteration [%3d][%4d / %4d]: %s"
-                    % (epoch + 1, idx + 1, len(data_loader), train_stats.average())
+                    % (epoch + 1, idx + 1, data_loader.__len__(), train_stats.average())
                 )
 
         return train_stats.average()
@@ -321,7 +321,7 @@ class Algorithm:
         self.dloader = dloader
         self.dataset_eval = dloader.dataset
         self.logger.info(
-            "==> Dataset: %s [%d images]" % (dloader.dataset.name, len(dloader))
+            "==> Dataset: %s [%d images]" % (dloader.dataset.name, dloader.__len__())
         )
         for key, network in self.networks.items():
             network.eval()

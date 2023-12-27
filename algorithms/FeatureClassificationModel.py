@@ -18,7 +18,7 @@ def accuracy(output, target, topk=(1,)):
 
     res = []
     for k in topk:
-        correct_k = correct[:k].view(-1).float().sum(0)
+        correct_k = correct[:k].reshape(-1).float().sum(0)
         res.append(correct_k.mul_(100.0 / batch_size))
     return res
 
@@ -98,9 +98,9 @@ class FeatureClassificationModel(Algorithm):
                 )[0][0]
         else:
             loss_total = self.criterions["loss"](pred_var, labels_var)
-            record["prec1"] = accuracy(pred_var.data, labels, topk=(1,))[0][0]
-            record["prec5"] = accuracy(pred_var.data, labels, topk=(5,))[0][0]
-        record["loss"] = loss_total.data[0]
+            record["prec1"] = accuracy(pred_var.data, labels, topk=(1,))[0].item()
+            record["prec5"] = accuracy(pred_var.data, labels, topk=(5,))[0].item()
+        record["loss"] = loss_total.data.item()
         # ********************************************************
 
         # ****** BACKPROPAGATE AND APPLY OPTIMIZATION STEP *******
@@ -112,7 +112,11 @@ class FeatureClassificationModel(Algorithm):
         # ********************************************************
         batch_process_time = time.time() - start
         total_time = batch_process_time + batch_load_time
-        record["load_time"] = 100 * (batch_load_time / total_time)
-        record["process_time"] = 100 * (batch_process_time / total_time)
+        if total_time != 0:
+            record["load_time"] = 100 * (batch_load_time / total_time)
+            record["process_time"] = 100 * (batch_process_time / total_time)
+        else:
+            record["load_time"] = 0
+            record["process_time"] = 0
 
         return record
