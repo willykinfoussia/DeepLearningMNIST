@@ -1,0 +1,193 @@
+2023-12-27 14:58:03,326 - algorithms.Algorithm - INFO   - Algorithm options {'data_train_opt': {'batch_size': 126, 'unsupervised': True, 'epoch_size': None, 'random_sized_crop': False, 'dataset_name': 'cifar10', 'split': 'train'}, 'data_test_opt': {'batch_size': 126, 'unsupervised': True, 'epoch_size': None, 'random_sized_crop': False, 'dataset_name': 'cifar10', 'split': 'test'}, 'max_num_epochs': 5, 'networks': {'model': {'def_file': 'architectures/NetworkInNetwork.py', 'pretrained': None, 'opt': {'num_classes': 4, 'num_stages': 4, 'use_avg_on_conv3': False}, 'optim_params': {'optim_type': 'sgd', 'lr': 0.1, 'momentum': 0.9, 'weight_decay': 0.0005, 'nesterov': True, 'LUT_lr': [(60, 0.1), (120, 0.02), (160, 0.004), (200, 0.0008)]}}}, 'criterions': {'loss': {'ctype': 'CrossEntropyLoss', 'opt': None}}, 'algorithm_type': 'ClassificationModel', 'exp_dir': '.\\experiments\\CIFAR10_RotNet_NIN4blocks', 'disp_step': 50}
+2023-12-27 14:58:03,326 - algorithms.Algorithm - INFO   - Set network model
+2023-12-27 14:58:03,341 - algorithms.Algorithm - INFO   - ==> Initiliaze network model from file architectures/NetworkInNetwork.py with opts: {'num_classes': 4, 'num_stages': 4, 'use_avg_on_conv3': False}
+2023-12-27 14:58:03,382 - algorithms.Algorithm - INFO   - Initialize criterion[loss]: CrossEntropyLoss with options: None
+2023-12-27 14:58:04,628 - algorithms.Algorithm - INFO   - Initialize optimizer: sgd with params: {'optim_type': 'sgd', 'lr': 0.1, 'momentum': 0.9, 'weight_decay': 0.0005, 'nesterov': True, 'LUT_lr': [(60, 0.1), (120, 0.02), (160, 0.004), (200, 0.0008)]} for netwotk: model
+2023-12-27 14:58:04,628 - algorithms.Algorithm - INFO   - Training epoch [  1 /   5]
+2023-12-27 14:58:04,641 - algorithms.Algorithm - INFO   - ==> Set to model optimizer lr = 0.1000000000
+2023-12-27 14:58:04,641 - algorithms.Algorithm - INFO   - Training: CIFAR10_RotNet_NIN4blocks
+2023-12-27 14:58:28,158 - algorithms.Algorithm - INFO   - ==> Iteration [  1][  50 /  396]: {'load_time': 78.2401, 'process_time': 21.7599}
+2023-12-27 14:58:51,252 - algorithms.Algorithm - INFO   - ==> Iteration [  1][ 100 /  396]: {'load_time': 75.7967, 'process_time': 24.2033}
+2023-12-27 14:59:13,508 - algorithms.Algorithm - INFO   - ==> Iteration [  1][ 150 /  396]: {'load_time': 80.1537, 'process_time': 19.8463}
+2023-12-27 14:59:36,171 - algorithms.Algorithm - INFO   - ==> Iteration [  1][ 200 /  396]: {'load_time': 83.5782, 'process_time': 16.4218}
+2023-12-27 14:59:59,176 - algorithms.Algorithm - INFO   - ==> Iteration [  1][ 250 /  396]: {'load_time': 85.6682, 'process_time': 14.3318}
+2023-12-27 15:00:22,219 - algorithms.Algorithm - INFO   - ==> Iteration [  1][ 300 /  396]: {'load_time': 87.0015, 'process_time': 12.9985}
+2023-12-27 15:00:45,237 - algorithms.Algorithm - INFO   - ==> Iteration [  1][ 350 /  396]: {'load_time': 87.9571, 'process_time': 12.0429}
+2023-12-27 15:01:07,021 - algorithms.Algorithm - INFO   - ==> Training stats: {'load_time': 88.4517, 'process_time': 11.5483}
+2023-12-27 15:01:07,386 - algorithms.Algorithm - INFO   - Evaluating: CIFAR10_RotNet_NIN4blocks
+2023-12-27 15:01:07,386 - algorithms.Algorithm - INFO   - ==> Dataset: cifar10_test [79 images]
+2023-12-27 15:01:23,759 - algorithms.Algorithm - INFO   - ==> Results: {'load_time': 29.908, 'process_time': 70.092}
+2023-12-27 15:01:23,763 - algorithms.Algorithm - INFO   - ==> Evaluation stats: {'load_time': 29.908, 'process_time': 70.092}
+2023-12-27 15:01:23,764 - algorithms.Algorithm - INFO   - Training epoch [  2 /   5]
+2023-12-27 15:01:23,764 - algorithms.Algorithm - INFO   - ==> Set to model optimizer lr = 0.1000000000
+2023-12-27 15:01:23,765 - algorithms.Algorithm - INFO   - Training: CIFAR10_RotNet_NIN4blocks
+2023-12-27 15:01:47,024 - algorithms.Algorithm - INFO   - ==> Iteration [  2][  50 /  396]: {'load_time': 92.2691, 'process_time': 7.7309}
+2023-12-27 15:02:10,709 - algorithms.Algorithm - INFO   - ==> Iteration [  2][ 100 /  396]: {'load_time': 93.0561, 'process_time': 6.9439}
+2023-12-27 15:02:38,532 - algorithms.Algorithm - INFO   - ==> Iteration [  2][ 150 /  396]: {'load_time': 90.99, 'process_time': 9.01}
+2023-12-27 15:03:02,445 - algorithms.Algorithm - INFO   - ==> Iteration [  2][ 200 /  396]: {'load_time': 91.5863, 'process_time': 8.4137}
+2023-12-27 15:03:26,724 - algorithms.Algorithm - INFO   - ==> Iteration [  2][ 250 /  396]: {'load_time': 91.777, 'process_time': 8.223}
+2023-12-27 15:03:50,957 - algorithms.Algorithm - INFO   - ==> Iteration [  2][ 300 /  396]: {'load_time': 92.0784, 'process_time': 7.9216}
+2023-12-27 15:04:15,240 - algorithms.Algorithm - INFO   - ==> Iteration [  2][ 350 /  396]: {'load_time': 92.3588, 'process_time': 7.6412}
+2023-12-27 15:04:37,793 - algorithms.Algorithm - INFO   - ==> Training stats: {'load_time': 92.5306, 'process_time': 7.4694}
+2023-12-27 15:04:38,202 - algorithms.Algorithm - INFO   - Evaluating: CIFAR10_RotNet_NIN4blocks
+2023-12-27 15:04:38,203 - algorithms.Algorithm - INFO   - ==> Dataset: cifar10_test [79 images]
+2023-12-27 15:04:51,921 - algorithms.Algorithm - INFO   - ==> Results: {'load_time': 30.6349, 'process_time': 69.3651}
+2023-12-27 15:04:51,922 - algorithms.Algorithm - INFO   - ==> Evaluation stats: {'load_time': 30.6349, 'process_time': 69.3651}
+2023-12-27 15:04:51,923 - algorithms.Algorithm - INFO   - Training epoch [  3 /   5]
+2023-12-27 15:04:51,923 - algorithms.Algorithm - INFO   - ==> Set to model optimizer lr = 0.1000000000
+2023-12-27 15:04:51,924 - algorithms.Algorithm - INFO   - Training: CIFAR10_RotNet_NIN4blocks
+2023-12-27 15:05:17,078 - algorithms.Algorithm - INFO   - ==> Iteration [  3][  50 /  396]: {'load_time': 91.4674, 'process_time': 8.5326}
+2023-12-27 15:05:42,217 - algorithms.Algorithm - INFO   - ==> Iteration [  3][ 100 /  396]: {'load_time': 92.8859, 'process_time': 7.1141}
+2023-12-27 15:06:07,486 - algorithms.Algorithm - INFO   - ==> Iteration [  3][ 150 /  396]: {'load_time': 93.2977, 'process_time': 6.7023}
+2023-12-27 15:06:31,866 - algorithms.Algorithm - INFO   - ==> Iteration [  3][ 200 /  396]: {'load_time': 93.572, 'process_time': 6.428}
+2023-12-27 15:06:56,281 - algorithms.Algorithm - INFO   - ==> Iteration [  3][ 250 /  396]: {'load_time': 93.7161, 'process_time': 6.2839}
+2023-12-27 15:07:20,570 - algorithms.Algorithm - INFO   - ==> Iteration [  3][ 300 /  396]: {'load_time': 93.8297, 'process_time': 6.1703}
+2023-12-27 15:07:44,929 - algorithms.Algorithm - INFO   - ==> Iteration [  3][ 350 /  396]: {'load_time': 93.8685, 'process_time': 6.1315}
+2023-12-27 15:08:07,531 - algorithms.Algorithm - INFO   - ==> Training stats: {'load_time': 93.8386, 'process_time': 6.1614}
+2023-12-27 15:08:07,932 - algorithms.Algorithm - INFO   - Evaluating: CIFAR10_RotNet_NIN4blocks
+2023-12-27 15:08:07,932 - algorithms.Algorithm - INFO   - ==> Dataset: cifar10_test [79 images]
+2023-12-27 15:08:20,926 - algorithms.Algorithm - INFO   - ==> Results: {'load_time': 29.2561, 'process_time': 70.7439}
+2023-12-27 15:08:20,929 - algorithms.Algorithm - INFO   - ==> Evaluation stats: {'load_time': 29.2561, 'process_time': 70.7439}
+2023-12-27 15:08:20,929 - algorithms.Algorithm - INFO   - Training epoch [  4 /   5]
+2023-12-27 15:08:20,929 - algorithms.Algorithm - INFO   - ==> Set to model optimizer lr = 0.1000000000
+2023-12-27 15:08:20,930 - algorithms.Algorithm - INFO   - Training: CIFAR10_RotNet_NIN4blocks
+2023-12-27 15:08:44,572 - algorithms.Algorithm - INFO   - ==> Iteration [  4][  50 /  396]: {'load_time': 92.3568, 'process_time': 7.6432}
+2023-12-27 15:09:08,389 - algorithms.Algorithm - INFO   - ==> Iteration [  4][ 100 /  396]: {'load_time': 93.0011, 'process_time': 6.9989}
+2023-12-27 15:09:32,464 - algorithms.Algorithm - INFO   - ==> Iteration [  4][ 150 /  396]: {'load_time': 93.3612, 'process_time': 6.6388}
+2023-12-27 15:09:56,499 - algorithms.Algorithm - INFO   - ==> Iteration [  4][ 200 /  396]: {'load_time': 93.5738, 'process_time': 6.4262}
+2023-12-27 15:10:20,496 - algorithms.Algorithm - INFO   - ==> Iteration [  4][ 250 /  396]: {'load_time': 93.6281, 'process_time': 6.3719}
+2023-12-27 15:10:44,393 - algorithms.Algorithm - INFO   - ==> Iteration [  4][ 300 /  396]: {'load_time': 93.7422, 'process_time': 6.2578}
+2023-12-27 15:11:08,394 - algorithms.Algorithm - INFO   - ==> Iteration [  4][ 350 /  396]: {'load_time': 93.7417, 'process_time': 6.2583}
+2023-12-27 15:11:31,651 - algorithms.Algorithm - INFO   - ==> Training stats: {'load_time': 93.6387, 'process_time': 6.3613}
+2023-12-27 15:11:32,070 - algorithms.Algorithm - INFO   - Evaluating: CIFAR10_RotNet_NIN4blocks
+2023-12-27 15:11:32,070 - algorithms.Algorithm - INFO   - ==> Dataset: cifar10_test [79 images]
+2023-12-27 15:11:50,291 - algorithms.Algorithm - INFO   - ==> Results: {'load_time': 28.7193, 'process_time': 70.0307}
+2023-12-27 15:11:50,292 - algorithms.Algorithm - INFO   - ==> Evaluation stats: {'load_time': 28.7193, 'process_time': 70.0307}
+2023-12-27 15:11:50,292 - algorithms.Algorithm - INFO   - Training epoch [  5 /   5]
+2023-12-27 15:11:50,292 - algorithms.Algorithm - INFO   - ==> Set to model optimizer lr = 0.1000000000
+2023-12-27 15:11:50,292 - algorithms.Algorithm - INFO   - Training: CIFAR10_RotNet_NIN4blocks
+2023-12-27 15:12:17,153 - algorithms.Algorithm - INFO   - ==> Iteration [  5][  50 /  396]: {'load_time': 92.0138, 'process_time': 7.9862}
+2023-12-27 15:12:44,355 - algorithms.Algorithm - INFO   - ==> Iteration [  5][ 100 /  396]: {'load_time': 93.0532, 'process_time': 6.9468}
+2023-12-27 15:13:11,674 - algorithms.Algorithm - INFO   - ==> Iteration [  5][ 150 /  396]: {'load_time': 93.7354, 'process_time': 6.2646}
+2023-12-27 15:13:39,436 - algorithms.Algorithm - INFO   - ==> Iteration [  5][ 200 /  396]: {'load_time': 93.8602, 'process_time': 6.1398}
+2023-12-27 15:14:07,768 - algorithms.Algorithm - INFO   - ==> Iteration [  5][ 250 /  396]: {'load_time': 94.0354, 'process_time': 5.9646}
+2023-12-27 15:14:35,694 - algorithms.Algorithm - INFO   - ==> Iteration [  5][ 300 /  396]: {'load_time': 94.1727, 'process_time': 5.8273}
+2023-12-27 15:15:01,754 - algorithms.Algorithm - INFO   - ==> Iteration [  5][ 350 /  396]: {'load_time': 94.2176, 'process_time': 5.7824}
+2023-12-27 15:15:25,322 - algorithms.Algorithm - INFO   - ==> Training stats: {'load_time': 94.2592, 'process_time': 5.7408}
+2023-12-27 15:15:25,754 - algorithms.Algorithm - INFO   - Evaluating: CIFAR10_RotNet_NIN4blocks
+2023-12-27 15:15:25,758 - algorithms.Algorithm - INFO   - ==> Dataset: cifar10_test [79 images]
+2023-12-27 15:15:39,544 - algorithms.Algorithm - INFO   - ==> Results: {'load_time': 28.4574, 'process_time': 71.5426}
+2023-12-27 15:15:39,548 - algorithms.Algorithm - INFO   - ==> Evaluation stats: {'load_time': 28.4574, 'process_time': 71.5426}
+2023-12-27 15:41:50,343 - algorithms.Algorithm - INFO   - Algorithm options {'data_train_opt': {'batch_size': 126, 'unsupervised': True, 'epoch_size': None, 'random_sized_crop': False, 'dataset_name': 'cifar10', 'split': 'train'}, 'data_test_opt': {'batch_size': 126, 'unsupervised': True, 'epoch_size': None, 'random_sized_crop': False, 'dataset_name': 'cifar10', 'split': 'test'}, 'max_num_epochs': 5, 'networks': {'model': {'def_file': 'architectures/NetworkInNetwork.py', 'pretrained': None, 'opt': {'num_classes': 4, 'num_stages': 4, 'use_avg_on_conv3': False}, 'optim_params': {'optim_type': 'sgd', 'lr': 0.1, 'momentum': 0.9, 'weight_decay': 0.0005, 'nesterov': True, 'LUT_lr': [(60, 0.1), (120, 0.02), (160, 0.004), (200, 0.0008)]}}}, 'criterions': {'loss': {'ctype': 'CrossEntropyLoss', 'opt': None}}, 'algorithm_type': 'ClassificationModel', 'exp_dir': '.\\experiments\\CIFAR10_RotNet_NIN4blocks', 'disp_step': 50}
+2023-12-27 15:41:50,345 - algorithms.Algorithm - INFO   - Set network model
+2023-12-27 15:41:50,345 - algorithms.Algorithm - INFO   - ==> Initiliaze network model from file architectures/NetworkInNetwork.py with opts: {'num_classes': 4, 'num_stages': 4, 'use_avg_on_conv3': False}
+2023-12-27 15:41:50,413 - algorithms.Algorithm - INFO   - Initialize criterion[loss]: CrossEntropyLoss with options: None
+2023-12-27 15:41:51,770 - algorithms.Algorithm - INFO   - Evaluating: CIFAR10_RotNet_NIN4blocks
+2023-12-27 15:41:51,770 - algorithms.Algorithm - INFO   - ==> Dataset: cifar10_test [79 images]
+2023-12-27 15:42:04,671 - algorithms.Algorithm - INFO   - ==> Results: {'load_time': 36.8187, 'process_time': 63.1813}
+2023-12-27 17:26:53,309 - algorithms.Algorithm - INFO   - Algorithm options {'data_train_opt': {'batch_size': 126, 'unsupervised': True, 'epoch_size': None, 'random_sized_crop': False, 'dataset_name': 'cifar10', 'split': 'train'}, 'data_test_opt': {'batch_size': 126, 'unsupervised': True, 'epoch_size': None, 'random_sized_crop': False, 'dataset_name': 'cifar10', 'split': 'test'}, 'max_num_epochs': 5, 'networks': {'model': {'def_file': 'architectures/NetworkInNetwork.py', 'pretrained': None, 'opt': {'num_classes': 4, 'num_stages': 4, 'use_avg_on_conv3': False}, 'optim_params': {'optim_type': 'sgd', 'lr': 0.1, 'momentum': 0.9, 'weight_decay': 0.0005, 'nesterov': True, 'LUT_lr': [(60, 0.1), (120, 0.02), (160, 0.004), (200, 0.0008)]}}}, 'criterions': {'loss': {'ctype': 'CrossEntropyLoss', 'opt': None}}, 'algorithm_type': 'ClassificationModel', 'exp_dir': '.\\experiments\\CIFAR10_RotNet_NIN4blocks', 'disp_step': 50}
+2023-12-27 17:26:53,309 - algorithms.Algorithm - INFO   - Set network model
+2023-12-27 17:26:53,309 - algorithms.Algorithm - INFO   - ==> Initiliaze network model from file architectures/NetworkInNetwork.py with opts: {'num_classes': 4, 'num_stages': 4, 'use_avg_on_conv3': False}
+2023-12-27 17:26:53,333 - algorithms.Algorithm - INFO   - Initialize criterion[loss]: CrossEntropyLoss with options: None
+2023-12-27 17:26:54,450 - algorithms.Algorithm - INFO   - Initialize optimizer: sgd with params: {'optim_type': 'sgd', 'lr': 0.1, 'momentum': 0.9, 'weight_decay': 0.0005, 'nesterov': True, 'LUT_lr': [(60, 0.1), (120, 0.02), (160, 0.004), (200, 0.0008)]} for netwotk: model
+2023-12-27 17:26:54,450 - algorithms.Algorithm - INFO   - Training epoch [  1 /   5]
+2023-12-27 17:26:54,450 - algorithms.Algorithm - INFO   - ==> Set to model optimizer lr = 0.1000000000
+2023-12-27 17:26:54,450 - algorithms.Algorithm - INFO   - Training: CIFAR10_RotNet_NIN4blocks
+2023-12-27 17:27:38,100 - algorithms.Algorithm - INFO   - Algorithm options {'data_train_opt': {'batch_size': 126, 'unsupervised': True, 'epoch_size': None, 'random_sized_crop': False, 'dataset_name': 'cifar10', 'split': 'train'}, 'data_test_opt': {'batch_size': 126, 'unsupervised': True, 'epoch_size': None, 'random_sized_crop': False, 'dataset_name': 'cifar10', 'split': 'test'}, 'max_num_epochs': 5, 'networks': {'model': {'def_file': 'architectures/NetworkInNetwork.py', 'pretrained': None, 'opt': {'num_classes': 4, 'num_stages': 4, 'use_avg_on_conv3': False}, 'optim_params': {'optim_type': 'sgd', 'lr': 0.1, 'momentum': 0.9, 'weight_decay': 0.0005, 'nesterov': True, 'LUT_lr': [(60, 0.1), (120, 0.02), (160, 0.004), (200, 0.0008)]}}}, 'criterions': {'loss': {'ctype': 'CrossEntropyLoss', 'opt': None}}, 'algorithm_type': 'ClassificationModel', 'exp_dir': '.\\experiments\\CIFAR10_RotNet_NIN4blocks', 'disp_step': 50}
+2023-12-27 17:27:38,100 - algorithms.Algorithm - INFO   - Set network model
+2023-12-27 17:27:38,100 - algorithms.Algorithm - INFO   - ==> Initiliaze network model from file architectures/NetworkInNetwork.py with opts: {'num_classes': 4, 'num_stages': 4, 'use_avg_on_conv3': False}
+2023-12-27 17:27:38,121 - algorithms.Algorithm - INFO   - Initialize criterion[loss]: CrossEntropyLoss with options: None
+2023-12-27 17:27:39,340 - algorithms.Algorithm - INFO   - Initialize optimizer: sgd with params: {'optim_type': 'sgd', 'lr': 0.1, 'momentum': 0.9, 'weight_decay': 0.0005, 'nesterov': True, 'LUT_lr': [(60, 0.1), (120, 0.02), (160, 0.004), (200, 0.0008)]} for netwotk: model
+2023-12-27 17:27:39,348 - algorithms.Algorithm - INFO   - Training epoch [  1 /   5]
+2023-12-27 17:27:39,348 - algorithms.Algorithm - INFO   - ==> Set to model optimizer lr = 0.1000000000
+2023-12-27 17:27:39,348 - algorithms.Algorithm - INFO   - Training: CIFAR10_RotNet_NIN4blocks
+2023-12-27 17:28:02,257 - algorithms.Algorithm - INFO   - ==> Iteration [  1][  50 /  396]: {'prec1': 49.8532, 'loss': 1.1331, 'load_time': 43.8707, 'process_time': 56.1293}
+2023-12-27 17:28:24,400 - algorithms.Algorithm - INFO   - ==> Iteration [  1][ 100 /  396]: {'prec1': 53.5099, 'loss': 1.0716, 'load_time': 44.5455, 'process_time': 55.4545}
+2023-12-27 17:28:46,676 - algorithms.Algorithm - INFO   - ==> Iteration [  1][ 150 /  396]: {'prec1': 55.8201, 'loss': 1.0302, 'load_time': 44.3578, 'process_time': 55.6422}
+2023-12-27 17:29:09,259 - algorithms.Algorithm - INFO   - ==> Iteration [  1][ 200 /  396]: {'prec1': 58.0546, 'loss': 0.9882, 'load_time': 44.5307, 'process_time': 55.4693}
+2023-12-27 17:29:31,671 - algorithms.Algorithm - INFO   - ==> Iteration [  1][ 250 /  396]: {'prec1': 59.8714, 'loss': 0.9512, 'load_time': 44.9394, 'process_time': 55.0606}
+2023-12-27 17:29:54,704 - algorithms.Algorithm - INFO   - ==> Iteration [  1][ 300 /  396]: {'prec1': 61.4306, 'loss': 0.9189, 'load_time': 45.2784, 'process_time': 54.7216}
+2023-12-27 17:30:17,790 - algorithms.Algorithm - INFO   - ==> Iteration [  1][ 350 /  396]: {'prec1': 62.6497, 'loss': 0.8947, 'load_time': 45.3507, 'process_time': 54.6493}
+2023-12-27 17:30:39,677 - algorithms.Algorithm - INFO   - ==> Training stats: {'prec1': 63.684, 'loss': 0.8738, 'load_time': 45.2135, 'process_time': 54.7865}
+2023-12-27 17:30:39,951 - algorithms.Algorithm - INFO   - Evaluating: CIFAR10_RotNet_NIN4blocks
+2023-12-27 17:30:39,951 - algorithms.Algorithm - INFO   - ==> Dataset: cifar10_test [79 images]
+2023-12-27 17:31:01,741 - algorithms.Algorithm - INFO   - ==> Results: {'prec1': 70.8374, 'loss': 0.7257, 'load_time': 1.6378, 'process_time': 98.3622}
+2023-12-27 17:31:01,742 - algorithms.Algorithm - INFO   - ==> Evaluation stats: {'prec1': 70.8374, 'loss': 0.7257, 'load_time': 1.6378, 'process_time': 98.3622}
+2023-12-27 17:31:01,742 - algorithms.Algorithm - INFO   - Training epoch [  2 /   5]
+2023-12-27 17:31:01,743 - algorithms.Algorithm - INFO   - ==> Set to model optimizer lr = 0.1000000000
+2023-12-27 17:31:01,743 - algorithms.Algorithm - INFO   - Training: CIFAR10_RotNet_NIN4blocks
+2023-12-27 17:31:24,709 - algorithms.Algorithm - INFO   - ==> Iteration [  2][  50 /  396]: {'prec1': 72.3651, 'loss': 0.6904, 'load_time': 44.598, 'process_time': 55.402}
+2023-12-27 17:31:47,768 - algorithms.Algorithm - INFO   - ==> Iteration [  2][ 100 /  396]: {'prec1': 72.5536, 'loss': 0.6857, 'load_time': 45.2538, 'process_time': 54.7462}
+2023-12-27 17:32:10,933 - algorithms.Algorithm - INFO   - ==> Iteration [  2][ 150 /  396]: {'prec1': 72.7685, 'loss': 0.6828, 'load_time': 45.418, 'process_time': 54.582}
+2023-12-27 17:32:34,693 - algorithms.Algorithm - INFO   - ==> Iteration [  2][ 200 /  396]: {'prec1': 73.3939, 'loss': 0.6693, 'load_time': 45.0989, 'process_time': 54.9011}
+2023-12-27 17:32:58,424 - algorithms.Algorithm - INFO   - ==> Iteration [  2][ 250 /  396]: {'prec1': 73.7825, 'loss': 0.6611, 'load_time': 44.9426, 'process_time': 55.0574}
+2023-12-27 17:33:22,531 - algorithms.Algorithm - INFO   - ==> Iteration [  2][ 300 /  396]: {'prec1': 74.1012, 'loss': 0.6532, 'load_time': 44.4027, 'process_time': 55.5973}
+2023-12-27 17:33:46,785 - algorithms.Algorithm - INFO   - ==> Iteration [  2][ 350 /  396]: {'prec1': 74.3458, 'loss': 0.6477, 'load_time': 44.9005, 'process_time': 55.0995}
+2023-12-27 17:34:09,597 - algorithms.Algorithm - INFO   - ==> Training stats: {'prec1': 74.5593, 'loss': 0.6435, 'load_time': 45.2544, 'process_time': 54.7456}
+2023-12-27 17:34:09,896 - algorithms.Algorithm - INFO   - Evaluating: CIFAR10_RotNet_NIN4blocks
+2023-12-27 17:34:09,896 - algorithms.Algorithm - INFO   - ==> Dataset: cifar10_test [79 images]
+2023-12-27 17:34:32,362 - algorithms.Algorithm - INFO   - ==> Results: {'prec1': 75.1633, 'loss': 0.6304, 'load_time': 1.77, 'process_time': 98.23}
+2023-12-27 17:34:32,363 - algorithms.Algorithm - INFO   - ==> Evaluation stats: {'prec1': 75.1633, 'loss': 0.6304, 'load_time': 1.77, 'process_time': 98.23}
+2023-12-27 17:34:32,363 - algorithms.Algorithm - INFO   - Training epoch [  3 /   5]
+2023-12-27 17:34:32,363 - algorithms.Algorithm - INFO   - ==> Set to model optimizer lr = 0.1000000000
+2023-12-27 17:34:32,364 - algorithms.Algorithm - INFO   - Training: CIFAR10_RotNet_NIN4blocks
+2023-12-27 17:34:56,490 - algorithms.Algorithm - INFO   - ==> Iteration [  3][  50 /  396]: {'prec1': 77.496, 'loss': 0.569, 'load_time': 43.8829, 'process_time': 56.1171}
+2023-12-27 17:35:21,457 - algorithms.Algorithm - INFO   - ==> Iteration [  3][ 100 /  396]: {'prec1': 77.5, 'loss': 0.5715, 'load_time': 46.5408, 'process_time': 53.4592}
+2023-12-27 17:35:46,998 - algorithms.Algorithm - INFO   - ==> Iteration [  3][ 150 /  396]: {'prec1': 77.9669, 'loss': 0.5658, 'load_time': 47.4706, 'process_time': 52.5294}
+2023-12-27 17:36:13,310 - algorithms.Algorithm - INFO   - ==> Iteration [  3][ 200 /  396]: {'prec1': 78.0109, 'loss': 0.5648, 'load_time': 47.8999, 'process_time': 52.1001}
+2023-12-27 17:36:39,970 - algorithms.Algorithm - INFO   - ==> Iteration [  3][ 250 /  396]: {'prec1': 78.031, 'loss': 0.5646, 'load_time': 47.6992, 'process_time': 52.3008}
+2023-12-27 17:37:07,607 - algorithms.Algorithm - INFO   - ==> Iteration [  3][ 300 /  396]: {'prec1': 78.1984, 'loss': 0.5598, 'load_time': 48.0037, 'process_time': 51.9963}
+2023-12-27 17:37:35,677 - algorithms.Algorithm - INFO   - ==> Iteration [  3][ 350 /  396]: {'prec1': 78.2993, 'loss': 0.5582, 'load_time': 48.4156, 'process_time': 51.5844}
+2023-12-27 17:38:01,515 - algorithms.Algorithm - INFO   - ==> Training stats: {'prec1': 78.448, 'loss': 0.5552, 'load_time': 48.193, 'process_time': 51.807}
+2023-12-27 17:38:01,864 - algorithms.Algorithm - INFO   - Evaluating: CIFAR10_RotNet_NIN4blocks
+2023-12-27 17:38:01,865 - algorithms.Algorithm - INFO   - ==> Dataset: cifar10_test [79 images]
+2023-12-27 17:38:25,679 - algorithms.Algorithm - INFO   - ==> Results: {'prec1': 75.7315, 'loss': 0.6567, 'load_time': 1.7706, 'process_time': 98.2294}
+2023-12-27 17:38:25,679 - algorithms.Algorithm - INFO   - ==> Evaluation stats: {'prec1': 75.7315, 'loss': 0.6567, 'load_time': 1.7706, 'process_time': 98.2294}
+2023-12-27 17:38:25,680 - algorithms.Algorithm - INFO   - Training epoch [  4 /   5]
+2023-12-27 17:38:25,680 - algorithms.Algorithm - INFO   - ==> Set to model optimizer lr = 0.1000000000
+2023-12-27 17:38:25,680 - algorithms.Algorithm - INFO   - Training: CIFAR10_RotNet_NIN4blocks
+2023-12-27 17:38:53,314 - algorithms.Algorithm - INFO   - ==> Iteration [  4][  50 /  396]: {'prec1': 80.9167, 'loss': 0.5009, 'load_time': 48.3355, 'process_time': 51.6645}
+2023-12-27 17:39:23,257 - algorithms.Algorithm - INFO   - ==> Iteration [  4][ 100 /  396]: {'prec1': 80.7262, 'loss': 0.5037, 'load_time': 50.3745, 'process_time': 49.6255}
+2023-12-27 17:39:54,599 - algorithms.Algorithm - INFO   - ==> Iteration [  4][ 150 /  396]: {'prec1': 80.6468, 'loss': 0.5062, 'load_time': 51.8228, 'process_time': 48.1772}
+2023-12-27 17:40:27,360 - algorithms.Algorithm - INFO   - ==> Iteration [  4][ 200 /  396]: {'prec1': 80.5923, 'loss': 0.507, 'load_time': 52.5222, 'process_time': 47.4778}
+2023-12-27 17:40:59,423 - algorithms.Algorithm - INFO   - ==> Iteration [  4][ 250 /  396]: {'prec1': 80.6024, 'loss': 0.5079, 'load_time': 53.1442, 'process_time': 46.8558}
+2023-12-27 17:41:31,691 - algorithms.Algorithm - INFO   - ==> Iteration [  4][ 300 /  396]: {'prec1': 80.5886, 'loss': 0.5064, 'load_time': 52.9911, 'process_time': 47.0089}
+2023-12-27 17:42:07,431 - algorithms.Algorithm - INFO   - ==> Iteration [  4][ 350 /  396]: {'prec1': 80.7319, 'loss': 0.5028, 'load_time': 53.5029, 'process_time': 46.4971}
+2023-12-27 17:42:42,802 - algorithms.Algorithm - INFO   - ==> Training stats: {'prec1': 80.8231, 'loss': 0.5005, 'load_time': 53.7881, 'process_time': 46.2119}
+2023-12-27 17:42:43,297 - algorithms.Algorithm - INFO   - Evaluating: CIFAR10_RotNet_NIN4blocks
+2023-12-27 17:42:43,297 - algorithms.Algorithm - INFO   - ==> Dataset: cifar10_test [79 images]
+2023-12-27 17:43:07,721 - algorithms.Algorithm - INFO   - ==> Results: {'prec1': 75.1506, 'loss': 0.6533, 'load_time': 1.5923, 'process_time': 98.4077}
+2023-12-27 17:43:07,722 - algorithms.Algorithm - INFO   - ==> Evaluation stats: {'prec1': 75.1506, 'loss': 0.6533, 'load_time': 1.5923, 'process_time': 98.4077}
+2023-12-27 17:43:07,722 - algorithms.Algorithm - INFO   - Training epoch [  5 /   5]
+2023-12-27 17:43:07,723 - algorithms.Algorithm - INFO   - ==> Set to model optimizer lr = 0.1000000000
+2023-12-27 17:43:07,723 - algorithms.Algorithm - INFO   - Training: CIFAR10_RotNet_NIN4blocks
+2023-12-27 17:43:41,779 - algorithms.Algorithm - INFO   - ==> Iteration [  5][  50 /  396]: {'prec1': 81.9524, 'loss': 0.4722, 'load_time': 53.4445, 'process_time': 46.5555}
+2023-12-27 17:44:12,909 - algorithms.Algorithm - INFO   - ==> Iteration [  5][ 100 /  396]: {'prec1': 81.9127, 'loss': 0.4746, 'load_time': 54.1161, 'process_time': 45.8839}
+2023-12-27 17:44:42,709 - algorithms.Algorithm - INFO   - ==> Iteration [  5][ 150 /  396]: {'prec1': 81.8003, 'loss': 0.4756, 'load_time': 53.5645, 'process_time': 46.4355}
+2023-12-27 17:45:14,915 - algorithms.Algorithm - INFO   - ==> Iteration [  5][ 200 /  396]: {'prec1': 81.9266, 'loss': 0.474, 'load_time': 54.1952, 'process_time': 45.8048}
+2023-12-27 17:45:45,492 - algorithms.Algorithm - INFO   - ==> Iteration [  5][ 250 /  396]: {'prec1': 82.0587, 'loss': 0.4711, 'load_time': 54.3733, 'process_time': 45.6267}
+2023-12-27 17:46:13,292 - algorithms.Algorithm - INFO   - ==> Iteration [  5][ 300 /  396]: {'prec1': 82.119, 'loss': 0.4689, 'load_time': 54.266, 'process_time': 45.734}
+2023-12-27 17:46:40,554 - algorithms.Algorithm - INFO   - ==> Iteration [  5][ 350 /  396]: {'prec1': 82.1803, 'loss': 0.4675, 'load_time': 53.862, 'process_time': 46.138}
+2023-12-27 17:47:06,097 - algorithms.Algorithm - INFO   - ==> Training stats: {'prec1': 82.161, 'loss': 0.4682, 'load_time': 53.6218, 'process_time': 46.3782}
+2023-12-27 17:47:06,432 - algorithms.Algorithm - INFO   - Evaluating: CIFAR10_RotNet_NIN4blocks
+2023-12-27 17:47:06,433 - algorithms.Algorithm - INFO   - ==> Dataset: cifar10_test [79 images]
+2023-12-27 17:47:28,885 - algorithms.Algorithm - INFO   - ==> Results: {'prec1': 80.3038, 'loss': 0.5211, 'load_time': 1.7142, 'process_time': 98.2858}
+2023-12-27 17:47:28,886 - algorithms.Algorithm - INFO   - ==> Evaluation stats: {'prec1': 80.3038, 'loss': 0.5211, 'load_time': 1.7142, 'process_time': 98.2858}
+2023-12-28 23:54:12,144 - algorithms.Algorithm - INFO   - Algorithm options {'data_train_opt': {'batch_size': 126, 'unsupervised': True, 'epoch_size': None, 'random_sized_crop': False, 'dataset_name': 'cifar10', 'split': 'train'}, 'data_test_opt': {'batch_size': 126, 'unsupervised': True, 'epoch_size': None, 'random_sized_crop': False, 'dataset_name': 'cifar10', 'split': 'test'}, 'max_num_epochs': 5, 'networks': {'model': {'def_file': 'architectures/NetworkInNetwork.py', 'pretrained': None, 'opt': {'num_classes': 4, 'num_stages': 4, 'use_avg_on_conv3': False}, 'optim_params': {'optim_type': 'sgd', 'lr': 0.1, 'momentum': 0.9, 'weight_decay': 0.0005, 'nesterov': True, 'LUT_lr': [(60, 0.1), (120, 0.02), (160, 0.004), (200, 0.0008)]}}}, 'criterions': {'loss': {'ctype': 'CrossEntropyLoss', 'opt': None}}, 'algorithm_type': 'ClassificationModel', 'exp_dir': '.\\experiments\\CIFAR10_RotNet_NIN4blocks', 'disp_step': 50}
+2023-12-28 23:54:12,146 - algorithms.Algorithm - INFO   - Set network model
+2023-12-28 23:54:12,146 - algorithms.Algorithm - INFO   - ==> Initiliaze network model from file architectures/NetworkInNetwork.py with opts: {'num_classes': 4, 'num_stages': 4, 'use_avg_on_conv3': False}
+2023-12-28 23:54:12,168 - algorithms.Algorithm - INFO   - Initialize criterion[loss]: CrossEntropyLoss with options: None
+2023-12-28 23:54:13,389 - algorithms.Algorithm - INFO   - Initialize optimizer: sgd with params: {'optim_type': 'sgd', 'lr': 0.1, 'momentum': 0.9, 'weight_decay': 0.0005, 'nesterov': True, 'LUT_lr': [(60, 0.1), (120, 0.02), (160, 0.004), (200, 0.0008)]} for netwotk: model
+2023-12-28 23:54:13,390 - algorithms.Algorithm - INFO   - Training epoch [  1 /   5]
+2023-12-28 23:54:13,390 - algorithms.Algorithm - INFO   - ==> Set to model optimizer lr = 0.1000000000
+2023-12-28 23:54:13,390 - algorithms.Algorithm - INFO   - Training: CIFAR10_RotNet_NIN4blocks
+2023-12-28 23:54:36,846 - algorithms.Algorithm - INFO   - ==> Iteration [  1][  50 /  396]: {'prec1': 49.5516, 'loss': 1.1335, 'load_time': 41.3049, 'process_time': 58.6951}
+2023-12-28 23:54:58,757 - algorithms.Algorithm - INFO   - ==> Iteration [  1][ 100 /  396]: {'prec1': 53.8571, 'loss': 1.0586, 'load_time': 43.4239, 'process_time': 56.5761}
+2023-12-28 23:55:52,319 - algorithms.Algorithm - INFO   - Algorithm options {'data_train_opt': {'batch_size': 126, 'unsupervised': True, 'epoch_size': None, 'random_sized_crop': False, 'dataset_name': 'cifar10', 'split': 'train'}, 'data_test_opt': {'batch_size': 126, 'unsupervised': True, 'epoch_size': None, 'random_sized_crop': False, 'dataset_name': 'cifar10', 'split': 'test'}, 'max_num_epochs': 5, 'networks': {'model': {'def_file': 'architectures/NetworkInNetwork.py', 'pretrained': None, 'opt': {'num_classes': 4, 'num_stages': 4, 'use_avg_on_conv3': False}, 'optim_params': {'optim_type': 'sgd', 'lr': 0.1, 'momentum': 0.9, 'weight_decay': 0.0005, 'nesterov': True, 'LUT_lr': [(60, 0.1), (120, 0.02), (160, 0.004), (200, 0.0008)]}}}, 'criterions': {'loss': {'ctype': 'CrossEntropyLoss', 'opt': None}}, 'algorithm_type': 'ClassificationModel', 'exp_dir': '.\\experiments\\CIFAR10_RotNet_NIN4blocks', 'disp_step': 50}
+2023-12-28 23:55:52,323 - algorithms.Algorithm - INFO   - Set network model
+2023-12-28 23:55:52,323 - algorithms.Algorithm - INFO   - ==> Initiliaze network model from file architectures/NetworkInNetwork.py with opts: {'num_classes': 4, 'num_stages': 4, 'use_avg_on_conv3': False}
+2023-12-28 23:55:52,365 - algorithms.Algorithm - INFO   - Initialize criterion[loss]: CrossEntropyLoss with options: None
+2023-12-28 23:55:53,591 - algorithms.Algorithm - INFO   - Initialize optimizer: sgd with params: {'optim_type': 'sgd', 'lr': 0.1, 'momentum': 0.9, 'weight_decay': 0.0005, 'nesterov': True, 'LUT_lr': [(60, 0.1), (120, 0.02), (160, 0.004), (200, 0.0008)]} for netwotk: model
+2023-12-28 23:55:53,592 - algorithms.Algorithm - INFO   - Training epoch [  1 /   5]
+2023-12-28 23:55:53,592 - algorithms.Algorithm - INFO   - ==> Set to model optimizer lr = 0.1000000000
+2023-12-28 23:55:53,593 - algorithms.Algorithm - INFO   - Training: CIFAR10_RotNet_NIN4blocks
