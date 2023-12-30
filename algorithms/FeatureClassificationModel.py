@@ -22,6 +22,10 @@ def accuracy(output, target, topk=(1,)):
         res.append(correct_k.mul_(100.0 / batch_size))
     return res
 
+def get_predicted_data(output):
+    maxk = max((1,0))
+    _, pred = output.data.topk(maxk, 1, True, True)
+    return pred.t()
 
 class FeatureClassificationModel(Algorithm):
     def __init__(self, opt):
@@ -100,6 +104,8 @@ class FeatureClassificationModel(Algorithm):
             loss_total = self.criterions["loss"](pred_var, labels_var)
             record["prec1"] = accuracy(pred_var.data, labels, topk=(1,))[0].item()
             record["prec5"] = accuracy(pred_var.data, labels, topk=(5,))[0].item()
+            #if not do_train:
+                #print(get_predicted_data(pred_var.data))
         record["loss"] = loss_total.data.item()
         # ********************************************************
 

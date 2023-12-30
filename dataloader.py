@@ -1,7 +1,6 @@
 from __future__ import print_function
 import torch
 import torch.utils.data as data
-import torchvision
 import torchnet as tnt
 import torchvision.datasets as datasets
 import torchvision.transforms as transforms
@@ -11,9 +10,9 @@ import random
 from torch.utils.data.dataloader import default_collate
 from PIL import Image
 import os
-import errno
+import math
+import matplotlib.pyplot as plt
 import numpy as np
-import sys
 import csv
 
 from pdb import set_trace as breakpoint
@@ -22,6 +21,7 @@ from pdb import set_trace as breakpoint
 _CIFAR_DATASET_DIR = './datasets/CIFAR'
 _IMAGENET_DATASET_DIR = './datasets/IMAGENET/ILSVRC2012'
 _PLACES205_DATASET_DIR = './datasets/Places205'
+_MNIST_DATASET_DIR = './datasets/MNIST'
 
 
 def buildLabelIndex(labels):
@@ -74,11 +74,12 @@ class Places205(data.Dataset):
 
 class GenericDataset(data.Dataset):
     def __init__(self, dataset_name, split, random_sized_crop=False,
-                 num_imgs_per_cat=None):
+                 num_imgs_per_cat=None, dataset_len=None):
         self.split = split.lower()
         self.dataset_name =  dataset_name.lower()
         self.name = self.dataset_name + '_' + self.split
         self.random_sized_crop = random_sized_crop
+        self.dataset_len = dataset_len
 
         # The num_imgs_per_cats input argument specifies the number
         # of training examples per category that would be used.
@@ -156,8 +157,25 @@ class GenericDataset(data.Dataset):
             self.data = datasets.__dict__[self.dataset_name.upper()](
                 _CIFAR_DATASET_DIR, train=self.split=='train',
                 download=True, transform=self.transform)
+        elif self.dataset_name=='mnist':
+            self.mean_pix = [0.5]
+            self.std_pix = [0.5]
+
+            if self.random_sized_crop:
+                raise ValueError('The random size crop option is not supported for the MNIST dataset')
+
+            transform = []
+            transform.append(lambda x: np.asarray(x))
+            self.transform = transforms.Compose(transform)
+            self.data = datasets.__dict__[self.dataset_name.upper()](
+                _MNIST_DATASET_DIR, train=self.split=='train',
+                download=True, transform=self.transform)
         else:
             raise ValueError('Not recognized dataset {0}'.format(dname))
+
+        if self.dataset_len != None: 
+            self.data = select_K_sample(self.data, self.dataset_len)
+        show_images(self.data, self.split)
         
         if num_imgs_per_cat is not None:
             self._keep_first_k_examples_per_category(num_imgs_per_cat)
@@ -166,7 +184,7 @@ class GenericDataset(data.Dataset):
     def _keep_first_k_examples_per_category(self, num_imgs_per_cat):
         print('num_imgs_per_category {0}'.format(num_imgs_per_cat))
    
-        if self.dataset_name=='cifar10':
+        if self.dataset_name=='cifar10' or self.dataset_name=="mnist":
             labels = self.data.test_labels if (self.split=='test') else self.data.train_labels
             data = self.data.test_data if (self.split=='test') else self.data.train_data
             label2ind = buildLabelIndex(labels)
@@ -213,28 +231,74 @@ class Denormalize(object):
             t.mul_(s).add_(m)
         return tensor
 
-def rotate_img(img, rot):
-    if rot == 0: # 0 degrees rotation
-        return img
-    elif rot == 90: # 90 degrees rotation
-        return np.flipud(np.transpose(img, (1,0,2)))
-    elif rot == 180: # 90 degrees rotation
-        return np.fliplr(np.flipud(img))
-    elif rot == 270: # 270 degrees rotation / or -90
-        return np.transpose(np.flipud(img), (1,0,2))
+def rotate_img(img, rot, grayscale):
+    if grayscale:
+        if rot == 0: # 0 degrees rotation
+            return img
+        elif rot == 90: # 90 degrees rotation
+            return np.flipud(np.transpose(img, (1,0)))
+        elif rot == 180: # 90 degrees rotation
+            return np.fliplr(np.flipud(img))
+        elif rot == 270: # 270 degrees rotation / or -90
+            return np.transpose(np.flipud(img), (1,0))
+        else:
+            raise ValueError('rotation should be 0, 90, 180, or 270 degrees')
     else:
-        raise ValueError('rotation should be 0, 90, 180, or 270 degrees')
+        if rot == 0: # 0 degrees rotation
+            return img
+        elif rot == 90: # 90 degrees rotation
+            return np.flipud(np.transpose(img, (1,0,2)))
+        elif rot == 180: # 90 degrees rotation
+            return np.fliplr(np.flipud(img))
+        elif rot == 270: # 270 degrees rotation / or -90
+            return np.transpose(np.flipud(img), (1,0,2))
+        else:
+            raise ValueError('rotation should be 0, 90, 180, or 270 degrees')
+
+def select_K_sample(dataset, k):
+    number_of_label = len(set(dataset.targets.numpy()))
+    images_per_label = math.floor(k/number_of_label)
+    print(f"number of labels : {number_of_label}")
+    print(f"images per label : {images_per_label}")
+    # Create a list to store the selected indices
+    selected_indices = []
+    # Iterate over each label to select the specified number of images
+    for label in range(number_of_label):
+        # Get indices of samples with the current label
+        label_indices = [i for i in range(len(dataset)) if dataset.targets[i] == label]
+
+        # Randomly select the specified number of images for the current label
+        selected_indices.extend(torch.randperm(len(label_indices))[:images_per_label])
+
+    # Create a Subset with the selected indices
+    return torch.utils.data.Subset(dataset, selected_indices)
+
+
+def show_images(dataset, legend):
+    figure = plt.figure(figsize=(8, 8))
+    plt.suptitle(f"Image of {legend} dataset")
+    cols, rows = 3, 3
+    for i in range(1, cols * rows + 1):
+        sample_idx = torch.randint(len(dataset), size=(1,)).item()
+        img, label = dataset[sample_idx]
+        figure.add_subplot(rows, cols, i)
+        plt.axis("off")
+        plt.title(f"Image of {label}")
+        plt.imshow(img.squeeze(), cmap="gray")
+    plt.show()
 
 
 class DataLoader(object):
     def __init__(self,
                  dataset,
+                 grayscale=False,
                  batch_size=1,
                  unsupervised=True,
                  epoch_size=None,
                  num_workers=0,
                  shuffle=True):
         self.dataset = dataset
+        self.grayscale = grayscale
         self.shuffle = shuffle
         self.epoch_size = epoch_size if epoch_size is not None else len(dataset)
         self.batch_size = batch_size
@@ -266,9 +330,9 @@ class DataLoader(object):
                 img0, _ = self.dataset[idx]
                 rotated_imgs = [
                     self.transform(img0),
-                    self.transform(rotate_img(img0,  90).copy()),
-                    self.transform(rotate_img(img0, 180).copy()),
-                    self.transform(rotate_img(img0, 270).copy())
+                    self.transform(rotate_img(img0,  90, self.grayscale).copy()),
+                    self.transform(rotate_img(img0, 180, self.grayscale).copy()),
+                    self.transform(rotate_img(img0, 270, self.grayscale).copy())
                 ]
                 rotation_labels = torch.LongTensor([0, 1, 2, 3])
                 return torch.stack(rotated_imgs, dim=0), rotation_labels
@@ -294,6 +358,7 @@ class DataLoader(object):
         data_loader = tnt_dataset.parallel(batch_size=self.batch_size,
             collate_fn=_collate_fun, num_workers=self.num_workers,
             shuffle=self.shuffle)
+
         return data_loader
 
     def __call__(self, epoch=0):
@@ -305,8 +370,8 @@ class DataLoader(object):
 if __name__ == '__main__':
     from matplotlib import pyplot as plt
 
-    dataset = GenericDataset('imagenet','train', random_sized_crop=True)
-    dataloader = DataLoader(dataset, batch_size=8, unsupervised=True)
+    dataset = GenericDataset('mnist','train', random_sized_crop=False)
+    dataloader = DataLoader(dataset, grayscale=True, batch_size=8, unsupervised=True)
 
     for b in dataloader(0):
         data, label = b
@@ -314,7 +379,7 @@ if __name__ == '__main__':
 
     inv_transform = dataloader.inv_transform
     for i in range(data.size(0)):
-        plt.subplot(data.size(0)/4,4,i+1)
+        plt.subplot(math.floor(data.size(0)/4),4,i+1)
         fig=plt.imshow(inv_transform(data[i]))
         fig.axes.get_xaxis().set_visible(False)
         fig.axes.get_yaxis().set_visible(False)

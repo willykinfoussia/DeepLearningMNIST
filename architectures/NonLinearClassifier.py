@@ -52,6 +52,12 @@ class Classifier(nn.Module):
             self.classifier.add_module('BatchNorm2d', nn.BatchNorm2d(nFeats))
             self.classifier.add_module('ReLU_2',      nn.ReLU(inplace=True))
             self.classifier.add_module('Liniear_F',   nn.Linear(nFeats, num_classes))
+        elif self.cls_type == 'NIN_ConvBlock3_grayscale':
+            self.classifier.add_module('Block3_ConvB1',  BasicBlock(nChannels, 192, 1))
+            self.classifier.add_module('Block3_ConvB2',  BasicBlock(192, 192, 1))
+            self.classifier.add_module('Block3_ConvB3',  BasicBlock(192, 192, 1))
+            self.classifier.add_module('GlobalAvgPool',  GlobalAvgPool())
+            self.classifier.add_module('Liniear_F',      nn.Linear(192, num_classes))
         elif self.cls_type == 'NIN_ConvBlock3':
             self.classifier.add_module('Block3_ConvB1',  BasicBlock(nChannels, 192, 3))
             self.classifier.add_module('Block3_ConvB2',  BasicBlock(192, 192, 1))

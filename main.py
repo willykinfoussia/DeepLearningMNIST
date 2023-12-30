@@ -32,6 +32,7 @@ print("Generated logs, snapshots, and model files will be stored on %s" % (confi
 data_train_opt = config['data_train_opt']
 data_test_opt = config['data_test_opt']
 num_imgs_per_cat = data_train_opt['num_imgs_per_cat'] if ('num_imgs_per_cat' in data_train_opt) else None
+data_train_len = data_train_opt['dataset_len'] if ('dataset_len' in data_train_opt) else None
 
 
 
@@ -39,7 +40,8 @@ dataset_train = GenericDataset(
     dataset_name=data_train_opt['dataset_name'],
     split=data_train_opt['split'],
     random_sized_crop=data_train_opt['random_sized_crop'],
-    num_imgs_per_cat=num_imgs_per_cat)
+    num_imgs_per_cat=num_imgs_per_cat,
+    dataset_len=data_train_len)
 dataset_test = GenericDataset(
     dataset_name=data_test_opt['dataset_name'],
     split=data_test_opt['split'],
@@ -47,6 +49,7 @@ dataset_test = GenericDataset(
 
 dloader_train = DataLoader(
     dataset=dataset_train,
+    grayscale=data_train_opt['grayscale'],
     batch_size=data_train_opt['batch_size'],
     unsupervised=data_train_opt['unsupervised'],
     epoch_size=data_train_opt['epoch_size'],
@@ -55,6 +58,7 @@ dloader_train = DataLoader(
 
 dloader_test = DataLoader(
     dataset=dataset_test,
+    grayscale=data_test_opt['grayscale'],
     batch_size=data_test_opt['batch_size'],
     unsupervised=data_test_opt['unsupervised'],
     epoch_size=data_test_opt['epoch_size'],
