@@ -33,6 +33,8 @@ data_train_opt = config['data_train_opt']
 data_test_opt = config['data_test_opt']
 num_imgs_per_cat = data_train_opt['num_imgs_per_cat'] if ('num_imgs_per_cat' in data_train_opt) else None
 data_train_len = data_train_opt['dataset_len'] if ('dataset_len' in data_train_opt) else None
+rotation_train_type = data_train_opt['rotation_type'] if ('rotation_type' in data_train_opt) else 0
+rotation_test_type = data_test_opt['rotation_type'] if ('rotation_type' in data_test_opt) else 0
 
 
 
@@ -53,6 +55,7 @@ dloader_train = DataLoader(
     batch_size=data_train_opt['batch_size'],
     unsupervised=data_train_opt['unsupervised'],
     epoch_size=data_train_opt['epoch_size'],
+    rotation_type=rotation_train_type,
     num_workers=args_opt.num_workers,
     shuffle=True)
 
@@ -62,6 +65,7 @@ dloader_test = DataLoader(
     batch_size=data_test_opt['batch_size'],
     unsupervised=data_test_opt['unsupervised'],
     epoch_size=data_test_opt['epoch_size'],
+    rotation_type=rotation_test_type,
     num_workers=args_opt.num_workers,
     shuffle=False)
 

@@ -1,0 +1,175 @@
+2024-01-06 14:35:59,065 - algorithms.Algorithm - INFO   - Algorithm options {'data_train_opt': {'batch_size': 126, 'grayscale': True, 'unsupervised': True, 'epoch_size': None, 'random_sized_crop': False, 'dataset_name': 'mnist', 'rotation_type': 1, 'split': 'train'}, 'data_test_opt': {'batch_size': 126, 'grayscale': True, 'unsupervised': True, 'epoch_size': None, 'random_sized_crop': False, 'dataset_name': 'mnist', 'rotation_type': 1, 'split': 'test'}, 'max_num_epochs': 10, 'networks': {'model': {'def_file': 'architectures/NetworkInNetwork.py', 'pretrained': None, 'opt': {'num_classes': 2, 'num_stages': 4, 'num_inchannels': 1, 'use_avg_on_conv3': False}, 'optim_params': {'optim_type': 'sgd', 'lr': 0.1, 'momentum': 0.9, 'weight_decay': 0.0005, 'nesterov': True, 'LUT_lr': [(60, 0.1), (120, 0.02), (160, 0.004), (200, 0.0008)]}}}, 'criterions': {'loss': {'ctype': 'CrossEntropyLoss', 'opt': None}}, 'algorithm_type': 'ClassificationModel', 'exp_dir': '.\\experiments\\MNIST_Base_Model_2Rot_4Block', 'disp_step': 50}
+2024-01-06 14:35:59,101 - algorithms.Algorithm - INFO   - Set network model
+2024-01-06 14:35:59,102 - algorithms.Algorithm - INFO   - ==> Initiliaze network model from file architectures/NetworkInNetwork.py with opts: {'num_classes': 2, 'num_stages': 4, 'num_inchannels': 1, 'use_avg_on_conv3': False}
+2024-01-06 14:35:59,151 - algorithms.Algorithm - INFO   - Initialize criterion[loss]: CrossEntropyLoss with options: None
+2024-01-06 14:36:00,182 - algorithms.Algorithm - INFO   - Initialize optimizer: sgd with params: {'optim_type': 'sgd', 'lr': 0.1, 'momentum': 0.9, 'weight_decay': 0.0005, 'nesterov': True, 'LUT_lr': [(60, 0.1), (120, 0.02), (160, 0.004), (200, 0.0008)]} for netwotk: model
+2024-01-06 14:36:00,182 - algorithms.Algorithm - INFO   - Training epoch [  1 /  10]
+2024-01-06 14:36:00,182 - algorithms.Algorithm - INFO   - ==> Set to model optimizer lr = 0.1000000000
+2024-01-06 14:36:00,182 - algorithms.Algorithm - INFO   - Training: MNIST_Base_Model_2Rot_4Block
+2024-01-06 14:36:11,053 - algorithms.Algorithm - INFO   - ==> Iteration [  1][  50 /  476]: {'prec1': 89.754, 'loss': 0.2246, 'load_time': 29.2295, 'process_time': 70.7705}
+2024-01-06 14:36:20,142 - algorithms.Algorithm - INFO   - ==> Iteration [  1][ 100 /  476]: {'prec1': 94.5833, 'loss': 0.1231, 'load_time': 29.4687, 'process_time': 70.5313}
+2024-01-06 14:36:29,323 - algorithms.Algorithm - INFO   - ==> Iteration [  1][ 150 /  476]: {'prec1': 96.2804, 'loss': 0.0861, 'load_time': 31.6556, 'process_time': 68.3444}
+2024-01-06 14:36:38,441 - algorithms.Algorithm - INFO   - ==> Iteration [  1][ 200 /  476]: {'prec1': 97.1071, 'loss': 0.0677, 'load_time': 33.4588, 'process_time': 66.5412}
+2024-01-06 14:36:47,562 - algorithms.Algorithm - INFO   - ==> Iteration [  1][ 250 /  476]: {'prec1': 97.5921, 'loss': 0.0568, 'load_time': 34.3327, 'process_time': 65.6673}
+2024-01-06 14:36:56,680 - algorithms.Algorithm - INFO   - ==> Iteration [  1][ 300 /  476]: {'prec1': 97.9603, 'loss': 0.0487, 'load_time': 35.2553, 'process_time': 64.7447}
+2024-01-06 14:37:05,809 - algorithms.Algorithm - INFO   - ==> Iteration [  1][ 350 /  476]: {'prec1': 98.2222, 'loss': 0.043, 'load_time': 35.8572, 'process_time': 64.1428}
+2024-01-06 14:37:14,937 - algorithms.Algorithm - INFO   - ==> Iteration [  1][ 400 /  476]: {'prec1': 98.3948, 'loss': 0.0393, 'load_time': 36.2423, 'process_time': 63.7577}
+2024-01-06 14:37:24,075 - algorithms.Algorithm - INFO   - ==> Iteration [  1][ 450 /  476]: {'prec1': 98.5309, 'loss': 0.0362, 'load_time': 36.765, 'process_time': 63.235}
+2024-01-06 14:37:29,007 - algorithms.Algorithm - INFO   - ==> Training stats: {'prec1': 98.5864, 'loss': 0.035, 'load_time': 36.8962, 'process_time': 63.1038}
+2024-01-06 14:37:29,068 - algorithms.Algorithm - INFO   - Evaluating: MNIST_Base_Model_2Rot_4Block
+2024-01-06 14:37:29,069 - algorithms.Algorithm - INFO   - ==> Dataset: mnist_test [79 images]
+2024-01-06 14:37:39,499 - algorithms.Algorithm - INFO   - ==> Results: {'prec1': 96.9147, 'loss': 0.0814, 'load_time': 1.2397, 'process_time': 98.7603}
+2024-01-06 14:37:39,500 - algorithms.Algorithm - INFO   - ==> Evaluation stats: {'prec1': 96.9147, 'loss': 0.0814, 'load_time': 1.2397, 'process_time': 98.7603}
+2024-01-06 14:37:39,500 - algorithms.Algorithm - INFO   - Training epoch [  2 /  10]
+2024-01-06 14:37:39,501 - algorithms.Algorithm - INFO   - ==> Set to model optimizer lr = 0.1000000000
+2024-01-06 14:37:39,501 - algorithms.Algorithm - INFO   - Training: MNIST_Base_Model_2Rot_4Block
+2024-01-06 14:37:48,638 - algorithms.Algorithm - INFO   - ==> Iteration [  2][  50 /  476]: {'prec1': 99.6746, 'loss': 0.01, 'load_time': 40.7116, 'process_time': 59.2884}
+2024-01-06 14:37:57,777 - algorithms.Algorithm - INFO   - ==> Iteration [  2][ 100 /  476]: {'prec1': 99.6349, 'loss': 0.0105, 'load_time': 40.5815, 'process_time': 59.4185}
+2024-01-06 14:38:07,023 - algorithms.Algorithm - INFO   - ==> Iteration [  2][ 150 /  476]: {'prec1': 99.6508, 'loss': 0.0104, 'load_time': 39.9204, 'process_time': 60.0796}
+2024-01-06 14:38:16,266 - algorithms.Algorithm - INFO   - ==> Iteration [  2][ 200 /  476]: {'prec1': 99.6766, 'loss': 0.0099, 'load_time': 39.7766, 'process_time': 60.2234}
+2024-01-06 14:38:25,600 - algorithms.Algorithm - INFO   - ==> Iteration [  2][ 250 /  476]: {'prec1': 99.7032, 'loss': 0.0095, 'load_time': 38.1977, 'process_time': 61.8023}
+2024-01-06 14:38:34,845 - algorithms.Algorithm - INFO   - ==> Iteration [  2][ 300 /  476]: {'prec1': 99.6984, 'loss': 0.0094, 'load_time': 37.5742, 'process_time': 62.4258}
+2024-01-06 14:38:44,035 - algorithms.Algorithm - INFO   - ==> Iteration [  2][ 350 /  476]: {'prec1': 99.6859, 'loss': 0.0097, 'load_time': 37.3768, 'process_time': 62.6232}
+2024-01-06 14:38:53,228 - algorithms.Algorithm - INFO   - ==> Iteration [  2][ 400 /  476]: {'prec1': 99.6845, 'loss': 0.0098, 'load_time': 37.4187, 'process_time': 62.5813}
+2024-01-06 14:39:02,456 - algorithms.Algorithm - INFO   - ==> Iteration [  2][ 450 /  476]: {'prec1': 99.6905, 'loss': 0.0096, 'load_time': 37.1682, 'process_time': 62.8318}
+2024-01-06 14:39:07,398 - algorithms.Algorithm - INFO   - ==> Training stats: {'prec1': 99.7022, 'loss': 0.0094, 'load_time': 37.4607, 'process_time': 62.5393}
+2024-01-06 14:39:07,452 - algorithms.Algorithm - INFO   - Evaluating: MNIST_Base_Model_2Rot_4Block
+2024-01-06 14:39:07,452 - algorithms.Algorithm - INFO   - ==> Dataset: mnist_test [79 images]
+2024-01-06 14:39:17,825 - algorithms.Algorithm - INFO   - ==> Results: {'prec1': 99.7768, 'loss': 0.0085, 'load_time': 1.0409, 'process_time': 98.9591}
+2024-01-06 14:39:17,825 - algorithms.Algorithm - INFO   - ==> Evaluation stats: {'prec1': 99.7768, 'loss': 0.0085, 'load_time': 1.0409, 'process_time': 98.9591}
+2024-01-06 14:39:17,826 - algorithms.Algorithm - INFO   - Training epoch [  3 /  10]
+2024-01-06 14:39:17,826 - algorithms.Algorithm - INFO   - ==> Set to model optimizer lr = 0.1000000000
+2024-01-06 14:39:17,826 - algorithms.Algorithm - INFO   - Training: MNIST_Base_Model_2Rot_4Block
+2024-01-06 14:39:27,139 - algorithms.Algorithm - INFO   - ==> Iteration [  3][  50 /  476]: {'prec1': 99.7937, 'loss': 0.0066, 'load_time': 30.8557, 'process_time': 69.1443}
+2024-01-06 14:39:36,395 - algorithms.Algorithm - INFO   - ==> Iteration [  3][ 100 /  476]: {'prec1': 99.7738, 'loss': 0.0076, 'load_time': 32.3785, 'process_time': 67.6215}
+2024-01-06 14:39:45,670 - algorithms.Algorithm - INFO   - ==> Iteration [  3][ 150 /  476]: {'prec1': 99.7831, 'loss': 0.0076, 'load_time': 33.5884, 'process_time': 66.4116}
+2024-01-06 14:39:54,894 - algorithms.Algorithm - INFO   - ==> Iteration [  3][ 200 /  476]: {'prec1': 99.7659, 'loss': 0.0077, 'load_time': 34.3709, 'process_time': 65.6291}
+2024-01-06 14:40:04,250 - algorithms.Algorithm - INFO   - ==> Iteration [  3][ 250 /  476]: {'prec1': 99.7429, 'loss': 0.008, 'load_time': 34.0478, 'process_time': 65.9522}
+2024-01-06 14:40:13,532 - algorithms.Algorithm - INFO   - ==> Iteration [  3][ 300 /  476]: {'prec1': 99.7566, 'loss': 0.0078, 'load_time': 35.2025, 'process_time': 64.7975}
+2024-01-06 14:40:22,828 - algorithms.Algorithm - INFO   - ==> Iteration [  3][ 350 /  476]: {'prec1': 99.7687, 'loss': 0.0075, 'load_time': 35.7621, 'process_time': 64.2379}
+2024-01-06 14:40:32,135 - algorithms.Algorithm - INFO   - ==> Iteration [  3][ 400 /  476]: {'prec1': 99.7708, 'loss': 0.0074, 'load_time': 36.045, 'process_time': 63.955}
+2024-01-06 14:40:41,431 - algorithms.Algorithm - INFO   - ==> Iteration [  3][ 450 /  476]: {'prec1': 99.7734, 'loss': 0.0074, 'load_time': 35.8904, 'process_time': 64.1096}
+2024-01-06 14:40:46,381 - algorithms.Algorithm - INFO   - ==> Training stats: {'prec1': 99.5429, 'loss': 0.0154, 'load_time': 35.9588, 'process_time': 64.0412}
+2024-01-06 14:40:46,434 - algorithms.Algorithm - INFO   - Evaluating: MNIST_Base_Model_2Rot_4Block
+2024-01-06 14:40:46,434 - algorithms.Algorithm - INFO   - ==> Dataset: mnist_test [79 images]
+2024-01-06 14:40:56,445 - algorithms.Algorithm - INFO   - ==> Results: {'prec1': 81.3678, 'loss': 4.3027, 'load_time': 1.9326, 'process_time': 98.0674}
+2024-01-06 14:40:56,446 - algorithms.Algorithm - INFO   - ==> Evaluation stats: {'prec1': 81.3678, 'loss': 4.3027, 'load_time': 1.9326, 'process_time': 98.0674}
+2024-01-06 14:40:56,447 - algorithms.Algorithm - INFO   - Training epoch [  4 /  10]
+2024-01-06 14:40:56,447 - algorithms.Algorithm - INFO   - ==> Set to model optimizer lr = 0.1000000000
+2024-01-06 14:40:56,447 - algorithms.Algorithm - INFO   - Training: MNIST_Base_Model_2Rot_4Block
+2024-01-06 14:41:05,648 - algorithms.Algorithm - INFO   - ==> Iteration [  4][  50 /  476]: {'prec1': 99.1349, 'loss': 0.0425, 'load_time': 38.6045, 'process_time': 61.3955}
+2024-01-06 14:41:14,881 - algorithms.Algorithm - INFO   - ==> Iteration [  4][ 100 /  476]: {'prec1': 99.2976, 'loss': 0.0325, 'load_time': 37.6973, 'process_time': 62.3027}
+2024-01-06 14:41:24,604 - algorithms.Algorithm - INFO   - ==> Iteration [  4][ 150 /  476]: {'prec1': 99.4444, 'loss': 0.0262, 'load_time': 33.5417, 'process_time': 66.4583}
+2024-01-06 14:41:33,957 - algorithms.Algorithm - INFO   - ==> Iteration [  4][ 200 /  476]: {'prec1': 99.5119, 'loss': 0.0226, 'load_time': 33.6936, 'process_time': 66.3064}
+2024-01-06 14:41:43,279 - algorithms.Algorithm - INFO   - ==> Iteration [  4][ 250 /  476]: {'prec1': 99.554, 'loss': 0.0202, 'load_time': 33.0169, 'process_time': 66.9831}
+2024-01-06 14:41:52,905 - algorithms.Algorithm - INFO   - ==> Iteration [  4][ 300 /  476]: {'prec1': 99.5794, 'loss': 0.0185, 'load_time': 31.5831, 'process_time': 68.4169}
+2024-01-06 14:42:02,354 - algorithms.Algorithm - INFO   - ==> Iteration [  4][ 350 /  476]: {'prec1': 99.602, 'loss': 0.0172, 'load_time': 31.75, 'process_time': 68.25}
+2024-01-06 14:42:12,033 - algorithms.Algorithm - INFO   - ==> Iteration [  4][ 400 /  476]: {'prec1': 99.6151, 'loss': 0.0162, 'load_time': 31.2303, 'process_time': 68.7697}
+2024-01-06 14:42:21,410 - algorithms.Algorithm - INFO   - ==> Iteration [  4][ 450 /  476]: {'prec1': 99.6226, 'loss': 0.0156, 'load_time': 31.8171, 'process_time': 68.1829}
+2024-01-06 14:42:26,426 - algorithms.Algorithm - INFO   - ==> Training stats: {'prec1': 99.624, 'loss': 0.0154, 'load_time': 32.168, 'process_time': 67.832}
+2024-01-06 14:42:26,495 - algorithms.Algorithm - INFO   - Evaluating: MNIST_Base_Model_2Rot_4Block
+2024-01-06 14:42:26,496 - algorithms.Algorithm - INFO   - ==> Dataset: mnist_test [79 images]
+2024-01-06 14:42:36,903 - algorithms.Algorithm - INFO   - ==> Results: {'prec1': 99.7222, 'loss': 0.0119, 'load_time': 1.3837, 'process_time': 98.6163}
+2024-01-06 14:42:36,903 - algorithms.Algorithm - INFO   - ==> Evaluation stats: {'prec1': 99.7222, 'loss': 0.0119, 'load_time': 1.3837, 'process_time': 98.6163}
+2024-01-06 14:42:36,903 - algorithms.Algorithm - INFO   - Training epoch [  5 /  10]
+2024-01-06 14:42:36,903 - algorithms.Algorithm - INFO   - ==> Set to model optimizer lr = 0.1000000000
+2024-01-06 14:42:36,903 - algorithms.Algorithm - INFO   - Training: MNIST_Base_Model_2Rot_4Block
+2024-01-06 14:42:46,550 - algorithms.Algorithm - INFO   - ==> Iteration [  5][  50 /  476]: {'prec1': 99.8333, 'loss': 0.006, 'load_time': 28.6643, 'process_time': 71.3357}
+2024-01-06 14:42:56,317 - algorithms.Algorithm - INFO   - ==> Iteration [  5][ 100 /  476]: {'prec1': 99.8016, 'loss': 0.0068, 'load_time': 31.5357, 'process_time': 68.4643}
+2024-01-06 14:43:05,770 - algorithms.Algorithm - INFO   - ==> Iteration [  5][ 150 /  476]: {'prec1': 99.836, 'loss': 0.0063, 'load_time': 32.8302, 'process_time': 67.1698}
+2024-01-06 14:43:15,232 - algorithms.Algorithm - INFO   - ==> Iteration [  5][ 200 /  476]: {'prec1': 99.8075, 'loss': 0.0069, 'load_time': 33.5969, 'process_time': 66.4031}
+2024-01-06 14:43:24,614 - algorithms.Algorithm - INFO   - ==> Iteration [  5][ 250 /  476]: {'prec1': 99.7794, 'loss': 0.0076, 'load_time': 34.9783, 'process_time': 65.0217}
+2024-01-06 14:43:34,056 - algorithms.Algorithm - INFO   - ==> Iteration [  5][ 300 /  476]: {'prec1': 99.7685, 'loss': 0.0078, 'load_time': 35.3547, 'process_time': 64.6453}
+2024-01-06 14:43:43,510 - algorithms.Algorithm - INFO   - ==> Iteration [  5][ 350 /  476]: {'prec1': 99.7517, 'loss': 0.0082, 'load_time': 35.3227, 'process_time': 64.6773}
+2024-01-06 14:43:53,066 - algorithms.Algorithm - INFO   - ==> Iteration [  5][ 400 /  476]: {'prec1': 99.7589, 'loss': 0.0082, 'load_time': 35.5627, 'process_time': 64.4373}
+2024-01-06 14:44:02,577 - algorithms.Algorithm - INFO   - ==> Iteration [  5][ 450 /  476]: {'prec1': 99.7778, 'loss': 0.0078, 'load_time': 35.8704, 'process_time': 64.1296}
+2024-01-06 14:44:07,682 - algorithms.Algorithm - INFO   - ==> Training stats: {'prec1': 99.777, 'loss': 0.0077, 'load_time': 36.0277, 'process_time': 63.9723}
+2024-01-06 14:44:07,733 - algorithms.Algorithm - INFO   - Evaluating: MNIST_Base_Model_2Rot_4Block
+2024-01-06 14:44:07,733 - algorithms.Algorithm - INFO   - ==> Dataset: mnist_test [79 images]
+2024-01-06 14:44:18,130 - algorithms.Algorithm - INFO   - ==> Results: {'prec1': 99.7917, 'loss': 0.009, 'load_time': 1.1513, 'process_time': 98.8487}
+2024-01-06 14:44:18,130 - algorithms.Algorithm - INFO   - ==> Evaluation stats: {'prec1': 99.7917, 'loss': 0.009, 'load_time': 1.1513, 'process_time': 98.8487}
+2024-01-06 14:44:18,130 - algorithms.Algorithm - INFO   - Training epoch [  6 /  10]
+2024-01-06 14:44:18,130 - algorithms.Algorithm - INFO   - ==> Set to model optimizer lr = 0.1000000000
+2024-01-06 14:44:18,130 - algorithms.Algorithm - INFO   - Training: MNIST_Base_Model_2Rot_4Block
+2024-01-06 14:44:27,534 - algorithms.Algorithm - INFO   - ==> Iteration [  6][  50 /  476]: {'prec1': 99.881, 'loss': 0.0053, 'load_time': 35.2989, 'process_time': 64.7011}
+2024-01-06 14:44:36,922 - algorithms.Algorithm - INFO   - ==> Iteration [  6][ 100 /  476]: {'prec1': 99.6786, 'loss': 0.0103, 'load_time': 35.4533, 'process_time': 64.5467}
+2024-01-06 14:44:46,354 - algorithms.Algorithm - INFO   - ==> Iteration [  6][ 150 /  476]: {'prec1': 99.7328, 'loss': 0.0095, 'load_time': 35.615, 'process_time': 64.385}
+2024-01-06 14:44:55,804 - algorithms.Algorithm - INFO   - ==> Iteration [  6][ 200 /  476]: {'prec1': 99.746, 'loss': 0.009, 'load_time': 35.7879, 'process_time': 64.2121}
+2024-01-06 14:45:05,217 - algorithms.Algorithm - INFO   - ==> Iteration [  6][ 250 /  476]: {'prec1': 99.7698, 'loss': 0.0083, 'load_time': 36.0833, 'process_time': 63.9167}
+2024-01-06 14:45:14,713 - algorithms.Algorithm - INFO   - ==> Iteration [  6][ 300 /  476]: {'prec1': 99.7526, 'loss': 0.0086, 'load_time': 36.5631, 'process_time': 63.4369}
+2024-01-06 14:45:24,195 - algorithms.Algorithm - INFO   - ==> Iteration [  6][ 350 /  476]: {'prec1': 99.7596, 'loss': 0.0084, 'load_time': 36.5902, 'process_time': 63.4098}
+2024-01-06 14:45:33,656 - algorithms.Algorithm - INFO   - ==> Iteration [  6][ 400 /  476]: {'prec1': 99.7689, 'loss': 0.0082, 'load_time': 36.3643, 'process_time': 63.6357}
+2024-01-06 14:45:43,175 - algorithms.Algorithm - INFO   - ==> Iteration [  6][ 450 /  476]: {'prec1': 99.754, 'loss': 0.0084, 'load_time': 36.2866, 'process_time': 63.7134}
+2024-01-06 14:45:48,252 - algorithms.Algorithm - INFO   - ==> Training stats: {'prec1': 99.7612, 'loss': 0.0083, 'load_time': 36.5474, 'process_time': 63.4526}
+2024-01-06 14:45:48,322 - algorithms.Algorithm - INFO   - Evaluating: MNIST_Base_Model_2Rot_4Block
+2024-01-06 14:45:48,322 - algorithms.Algorithm - INFO   - ==> Dataset: mnist_test [79 images]
+2024-01-06 14:45:58,947 - algorithms.Algorithm - INFO   - ==> Results: {'prec1': 99.2808, 'loss': 0.0184, 'load_time': 1.5881, 'process_time': 98.4119}
+2024-01-06 14:45:58,947 - algorithms.Algorithm - INFO   - ==> Evaluation stats: {'prec1': 99.2808, 'loss': 0.0184, 'load_time': 1.5881, 'process_time': 98.4119}
+2024-01-06 14:45:58,947 - algorithms.Algorithm - INFO   - Training epoch [  7 /  10]
+2024-01-06 14:45:58,948 - algorithms.Algorithm - INFO   - ==> Set to model optimizer lr = 0.1000000000
+2024-01-06 14:45:58,948 - algorithms.Algorithm - INFO   - Training: MNIST_Base_Model_2Rot_4Block
+2024-01-06 14:46:08,698 - algorithms.Algorithm - INFO   - ==> Iteration [  7][  50 /  476]: {'prec1': 99.8175, 'loss': 0.0068, 'load_time': 29.595, 'process_time': 70.405}
+2024-01-06 14:46:18,361 - algorithms.Algorithm - INFO   - ==> Iteration [  7][ 100 /  476]: {'prec1': 99.6825, 'loss': 0.0105, 'load_time': 33.5262, 'process_time': 66.4738}
+2024-01-06 14:46:27,849 - algorithms.Algorithm - INFO   - ==> Iteration [  7][ 150 /  476]: {'prec1': 99.6852, 'loss': 0.0102, 'load_time': 35.5898, 'process_time': 64.4102}
+2024-01-06 14:46:37,346 - algorithms.Algorithm - INFO   - ==> Iteration [  7][ 200 /  476]: {'prec1': 99.7123, 'loss': 0.0098, 'load_time': 37.8224, 'process_time': 62.1776}
+2024-01-06 14:46:46,874 - algorithms.Algorithm - INFO   - ==> Iteration [  7][ 250 /  476]: {'prec1': 99.7397, 'loss': 0.0091, 'load_time': 38.7053, 'process_time': 61.2947}
+2024-01-06 14:46:56,453 - algorithms.Algorithm - INFO   - ==> Iteration [  7][ 300 /  476]: {'prec1': 99.7037, 'loss': 0.0098, 'load_time': 38.4066, 'process_time': 61.5934}
+2024-01-06 14:47:05,908 - algorithms.Algorithm - INFO   - ==> Iteration [  7][ 350 /  476]: {'prec1': 99.7222, 'loss': 0.0093, 'load_time': 38.0402, 'process_time': 61.9598}
+2024-01-06 14:47:15,351 - algorithms.Algorithm - INFO   - ==> Iteration [  7][ 400 /  476]: {'prec1': 99.7302, 'loss': 0.009, 'load_time': 38.1716, 'process_time': 61.8284}
+2024-01-06 14:47:24,777 - algorithms.Algorithm - INFO   - ==> Iteration [  7][ 450 /  476]: {'prec1': 99.7249, 'loss': 0.0091, 'load_time': 38.1187, 'process_time': 61.8813}
+2024-01-06 14:47:29,846 - algorithms.Algorithm - INFO   - ==> Training stats: {'prec1': 99.7255, 'loss': 0.0091, 'load_time': 38.1168, 'process_time': 61.8832}
+2024-01-06 14:47:29,940 - algorithms.Algorithm - INFO   - Evaluating: MNIST_Base_Model_2Rot_4Block
+2024-01-06 14:47:29,941 - algorithms.Algorithm - INFO   - ==> Dataset: mnist_test [79 images]
+2024-01-06 14:47:40,023 - algorithms.Algorithm - INFO   - ==> Results: {'prec1': 99.122, 'loss': 0.0218, 'load_time': 1.328, 'process_time': 98.672}
+2024-01-06 14:47:40,024 - algorithms.Algorithm - INFO   - ==> Evaluation stats: {'prec1': 99.122, 'loss': 0.0218, 'load_time': 1.328, 'process_time': 98.672}
+2024-01-06 14:47:40,024 - algorithms.Algorithm - INFO   - Training epoch [  8 /  10]
+2024-01-06 14:47:40,025 - algorithms.Algorithm - INFO   - ==> Set to model optimizer lr = 0.1000000000
+2024-01-06 14:47:40,025 - algorithms.Algorithm - INFO   - Training: MNIST_Base_Model_2Rot_4Block
+2024-01-06 14:47:49,416 - algorithms.Algorithm - INFO   - ==> Iteration [  8][  50 /  476]: {'prec1': 99.7619, 'loss': 0.0078, 'load_time': 41.2327, 'process_time': 58.7673}
+2024-01-06 14:47:58,987 - algorithms.Algorithm - INFO   - ==> Iteration [  8][ 100 /  476]: {'prec1': 99.8135, 'loss': 0.007, 'load_time': 40.6366, 'process_time': 59.3634}
+2024-01-06 14:48:08,536 - algorithms.Algorithm - INFO   - ==> Iteration [  8][ 150 /  476]: {'prec1': 99.8148, 'loss': 0.0068, 'load_time': 39.9088, 'process_time': 60.0912}
+2024-01-06 14:48:18,028 - algorithms.Algorithm - INFO   - ==> Iteration [  8][ 200 /  476]: {'prec1': 99.7956, 'loss': 0.0072, 'load_time': 39.7233, 'process_time': 60.2767}
+2024-01-06 14:48:27,524 - algorithms.Algorithm - INFO   - ==> Iteration [  8][ 250 /  476]: {'prec1': 99.7683, 'loss': 0.008, 'load_time': 39.5783, 'process_time': 60.4217}
+2024-01-06 14:48:37,018 - algorithms.Algorithm - INFO   - ==> Iteration [  8][ 300 /  476]: {'prec1': 99.746, 'loss': 0.0085, 'load_time': 39.184, 'process_time': 60.816}
+2024-01-06 14:48:46,490 - algorithms.Algorithm - INFO   - ==> Iteration [  8][ 350 /  476]: {'prec1': 99.7347, 'loss': 0.0088, 'load_time': 39.0109, 'process_time': 60.9891}
+2024-01-06 14:48:55,964 - algorithms.Algorithm - INFO   - ==> Iteration [  8][ 400 /  476]: {'prec1': 99.7312, 'loss': 0.0091, 'load_time': 38.6276, 'process_time': 61.3724}
+2024-01-06 14:49:05,335 - algorithms.Algorithm - INFO   - ==> Iteration [  8][ 450 /  476]: {'prec1': 99.724, 'loss': 0.0092, 'load_time': 38.2803, 'process_time': 61.7197}
+2024-01-06 14:49:10,393 - algorithms.Algorithm - INFO   - ==> Training stats: {'prec1': 99.7169, 'loss': 0.0093, 'load_time': 38.4558, 'process_time': 61.5442}
+2024-01-06 14:49:10,453 - algorithms.Algorithm - INFO   - Evaluating: MNIST_Base_Model_2Rot_4Block
+2024-01-06 14:49:10,454 - algorithms.Algorithm - INFO   - ==> Dataset: mnist_test [79 images]
+2024-01-06 14:49:20,672 - algorithms.Algorithm - INFO   - ==> Results: {'prec1': 97.6885, 'loss': 0.0601, 'load_time': 1.3149, 'process_time': 98.6851}
+2024-01-06 14:49:20,673 - algorithms.Algorithm - INFO   - ==> Evaluation stats: {'prec1': 97.6885, 'loss': 0.0601, 'load_time': 1.3149, 'process_time': 98.6851}
+2024-01-06 14:49:20,673 - algorithms.Algorithm - INFO   - Training epoch [  9 /  10]
+2024-01-06 14:49:20,674 - algorithms.Algorithm - INFO   - ==> Set to model optimizer lr = 0.1000000000
+2024-01-06 14:49:20,674 - algorithms.Algorithm - INFO   - Training: MNIST_Base_Model_2Rot_4Block
+2024-01-06 14:49:30,029 - algorithms.Algorithm - INFO   - ==> Iteration [  9][  50 /  476]: {'prec1': 99.5556, 'loss': 0.0147, 'load_time': 33.9888, 'process_time': 66.0112}
+2024-01-06 14:49:39,369 - algorithms.Algorithm - INFO   - ==> Iteration [  9][ 100 /  476]: {'prec1': 99.6587, 'loss': 0.0112, 'load_time': 37.378, 'process_time': 62.622}
+2024-01-06 14:49:48,745 - algorithms.Algorithm - INFO   - ==> Iteration [  9][ 150 /  476]: {'prec1': 99.672, 'loss': 0.0111, 'load_time': 37.3735, 'process_time': 62.6265}
+2024-01-06 14:49:58,120 - algorithms.Algorithm - INFO   - ==> Iteration [  9][ 200 /  476]: {'prec1': 99.7103, 'loss': 0.0101, 'load_time': 39.2952, 'process_time': 60.7048}
+2024-01-06 14:50:07,500 - algorithms.Algorithm - INFO   - ==> Iteration [  9][ 250 /  476]: {'prec1': 99.7397, 'loss': 0.0093, 'load_time': 39.5467, 'process_time': 60.4533}
+2024-01-06 14:50:16,876 - algorithms.Algorithm - INFO   - ==> Iteration [  9][ 300 /  476]: {'prec1': 99.7381, 'loss': 0.0092, 'load_time': 40.2487, 'process_time': 59.7513}
+2024-01-06 14:50:26,324 - algorithms.Algorithm - INFO   - ==> Iteration [  9][ 350 /  476]: {'prec1': 99.712, 'loss': 0.0099, 'load_time': 40.2314, 'process_time': 59.7686}
+2024-01-06 14:50:35,811 - algorithms.Algorithm - INFO   - ==> Iteration [  9][ 400 /  476]: {'prec1': 99.7054, 'loss': 0.0099, 'load_time': 40.3767, 'process_time': 59.6233}
+2024-01-06 14:50:45,291 - algorithms.Algorithm - INFO   - ==> Iteration [  9][ 450 /  476]: {'prec1': 99.7011, 'loss': 0.01, 'load_time': 40.8619, 'process_time': 59.1381}
+2024-01-06 14:50:50,352 - algorithms.Algorithm - INFO   - ==> Training stats: {'prec1': 99.703, 'loss': 0.0099, 'load_time': 40.9806, 'process_time': 59.0194}
+2024-01-06 14:50:50,415 - algorithms.Algorithm - INFO   - Evaluating: MNIST_Base_Model_2Rot_4Block
+2024-01-06 14:50:50,415 - algorithms.Algorithm - INFO   - ==> Dataset: mnist_test [79 images]
+2024-01-06 14:50:59,918 - algorithms.Algorithm - INFO   - ==> Results: {'prec1': 96.1038, 'loss': 0.1242, 'load_time': 0.8579, 'process_time': 99.1421}
+2024-01-06 14:50:59,919 - algorithms.Algorithm - INFO   - ==> Evaluation stats: {'prec1': 96.1038, 'loss': 0.1242, 'load_time': 0.8579, 'process_time': 99.1421}
+2024-01-06 14:50:59,919 - algorithms.Algorithm - INFO   - Training epoch [ 10 /  10]
+2024-01-06 14:50:59,920 - algorithms.Algorithm - INFO   - ==> Set to model optimizer lr = 0.1000000000
+2024-01-06 14:50:59,921 - algorithms.Algorithm - INFO   - Training: MNIST_Base_Model_2Rot_4Block
+2024-01-06 14:51:09,270 - algorithms.Algorithm - INFO   - ==> Iteration [ 10][  50 /  476]: {'prec1': 99.7857, 'loss': 0.0079, 'load_time': 40.8074, 'process_time': 59.1926}
+2024-01-06 14:51:18,670 - algorithms.Algorithm - INFO   - ==> Iteration [ 10][ 100 /  476]: {'prec1': 99.7341, 'loss': 0.0091, 'load_time': 39.347, 'process_time': 60.653}
+2024-01-06 14:51:28,066 - algorithms.Algorithm - INFO   - ==> Iteration [ 10][ 150 /  476]: {'prec1': 99.5529, 'loss': 0.0167, 'load_time': 40.3158, 'process_time': 59.6842}
+2024-01-06 14:51:37,478 - algorithms.Algorithm - INFO   - ==> Iteration [ 10][ 200 /  476]: {'prec1': 99.1746, 'loss': 0.0266, 'load_time': 40.7871, 'process_time': 59.2129}
+2024-01-06 14:51:46,964 - algorithms.Algorithm - INFO   - ==> Iteration [ 10][ 250 /  476]: {'prec1': 99.273, 'loss': 0.0236, 'load_time': 41.666, 'process_time': 58.334}
+2024-01-06 14:51:56,388 - algorithms.Algorithm - INFO   - ==> Iteration [ 10][ 300 /  476]: {'prec1': 99.3413, 'loss': 0.0217, 'load_time': 41.0162, 'process_time': 58.9838}
+2024-01-06 14:52:05,796 - algorithms.Algorithm - INFO   - ==> Iteration [ 10][ 350 /  476]: {'prec1': 99.3934, 'loss': 0.02, 'load_time': 40.8034, 'process_time': 59.1966}
+2024-01-06 14:52:15,234 - algorithms.Algorithm - INFO   - ==> Iteration [ 10][ 400 /  476]: {'prec1': 99.4355, 'loss': 0.0187, 'load_time': 40.9457, 'process_time': 59.0543}
+2024-01-06 14:52:24,932 - algorithms.Algorithm - INFO   - ==> Iteration [ 10][ 450 /  476]: {'prec1': 99.4727, 'loss': 0.0177, 'load_time': 40.1902, 'process_time': 59.8098}
+2024-01-06 14:52:30,015 - algorithms.Algorithm - INFO   - ==> Training stats: {'prec1': 99.4534, 'loss': 0.0185, 'load_time': 40.2134, 'process_time': 59.7866}
+2024-01-06 14:52:30,081 - algorithms.Algorithm - INFO   - Evaluating: MNIST_Base_Model_2Rot_4Block
+2024-01-06 14:52:30,081 - algorithms.Algorithm - INFO   - ==> Dataset: mnist_test [79 images]
+2024-01-06 14:52:40,318 - algorithms.Algorithm - INFO   - ==> Results: {'prec1': 98.5727, 'loss': 0.038, 'load_time': 1.3181, 'process_time': 98.6819}
+2024-01-06 14:52:40,319 - algorithms.Algorithm - INFO   - ==> Evaluation stats: {'prec1': 98.5727, 'loss': 0.038, 'load_time': 1.3181, 'process_time': 98.6819}

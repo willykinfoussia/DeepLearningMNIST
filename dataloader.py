@@ -296,6 +296,7 @@ class DataLoader(object):
                  unsupervised=True,
                  epoch_size=None,
                  num_workers=0,
+                 rotation_type = 0,
                  shuffle=True):
         self.dataset = dataset
         self.grayscale = grayscale
@@ -303,6 +304,7 @@ class DataLoader(object):
         self.epoch_size = epoch_size if epoch_size is not None else len(dataset)
         self.batch_size = batch_size
         self.unsupervised = unsupervised
+        self.rotation_type = rotation_type
         self.num_workers = num_workers
 
         mean_pix  = self.dataset.mean_pix
@@ -328,13 +330,26 @@ class DataLoader(object):
             def _load_function(idx):
                 idx = idx % len(self.dataset)
                 img0, _ = self.dataset[idx]
-                rotated_imgs = [
-                    self.transform(img0),
-                    self.transform(rotate_img(img0,  90, self.grayscale).copy()),
-                    self.transform(rotate_img(img0, 180, self.grayscale).copy()),
-                    self.transform(rotate_img(img0, 270, self.grayscale).copy())
-                ]
-                rotation_labels = torch.LongTensor([0, 1, 2, 3])
+                if self.rotation_type == 0:
+                    rotated_imgs = [
+                        self.transform(img0),
+                        self.transform(rotate_img(img0,  90, self.grayscale).copy()),
+                        self.transform(rotate_img(img0, 180, self.grayscale).copy()),
+                        self.transform(rotate_img(img0, 270, self.grayscale).copy())
+                    ]
+                    rotation_labels = torch.LongTensor([0, 1, 2, 3])
+                elif self.rotation_type == 1:
+                    rotated_imgs = [
+                        self.transform(img0),
+                        self.transform(rotate_img(img0, 180, self.grayscale).copy()),
+                    ]
+                    rotation_labels = torch.LongTensor([0, 1])
+                elif self.rotation_type == 2:
+                    rotated_imgs = [
+                        self.transform(rotate_img(img0,  90, self.grayscale).copy()),
+                        self.transform(rotate_img(img0, 270, self.grayscale).copy())
+                    ]
+                    rotation_labels = torch.LongTensor([0, 1])
                 return torch.stack(rotated_imgs, dim=0), rotation_labels
             def _collate_fun(batch):
                 batch = default_collate(batch)
